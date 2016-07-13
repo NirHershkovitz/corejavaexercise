@@ -16,7 +16,7 @@ public class StudentTest {
     public void shouldReturnTheNameThatWasSet() {
         classUnderTest.setName("myname");
         String actual = classUnderTest.getName();
-        assertEquals("student name if not what expected","myname", actual);
+        assertEquals("student name is not what expected", "myname", actual);
     }
 
     @Test
@@ -25,6 +25,23 @@ public class StudentTest {
             classUnderTest.setName(null);
             fail();
         } catch (RuntimeException e) {
+            //Success
+        }
+    }
+
+    @Test
+    public void shouldReturnTheIdThatWasSet(){
+        classUnderTest.setId("1234");
+        String actualId =classUnderTest.getId();
+        assertEquals("student id is not what expected","1234", actualId);
+    }
+
+    @Test
+    public void shouldThrowExceptionWhenSettingIdToNull(){
+        try{
+            classUnderTest.setId(null);
+            fail();
+        } catch(RuntimeException e){
             //Success
         }
     }

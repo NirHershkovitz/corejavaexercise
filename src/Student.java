@@ -5,6 +5,18 @@
  */
 public class Student {
     private String name;
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        if(id==null)
+            throw new RuntimeException("id cannot be null");
+        this.id = id;
+    }
+
 
     public void setName(String name) {
         if (name == null) {
