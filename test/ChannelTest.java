@@ -35,8 +35,8 @@ public class ChannelTest {
 
     @Test
     public void shoulReturnTheChannelCampaignIdThatWasSet() {
-        classUnderTest.setChannel_campaign_id("testChannelCampaignId");
-        String tstCmpnId = classUnderTest.getChannel_campaign_id();
+        classUnderTest.setCampaignId("testChannelCampaignId");
+        String tstCmpnId = classUnderTest.getCampaignId();
         assertEquals("ChannelCampaignId if not what expected", "testChannelCampaignId", tstCmpnId);
     }
 
@@ -44,7 +44,7 @@ public class ChannelTest {
     public void shouldThrowExceptionWhenSettingChannelCampaignIdToNull()
     {
         try {
-            classUnderTest.setChannel_campaign_id(null);
+            classUnderTest.setCampaignId(null);
             fail();
         }
         catch (RuntimeException e){
@@ -54,8 +54,8 @@ public class ChannelTest {
 
     @Test
     public void shoulReturnTheChannelAdIdThatWasSet() {
-        classUnderTest.setChannel_ad_id("testChannelAdId");
-        String tstCnlAdId = classUnderTest.getChannel_ad_id();
+        classUnderTest.setAdId("testChannelAdId");
+        String tstCnlAdId = classUnderTest.getAdId();
         assertEquals("ChannelAdId if not what expected", "testChannelAdId", tstCnlAdId);
     }
 
@@ -63,7 +63,7 @@ public class ChannelTest {
     public void shouldThrowExceptionWhenSettingChannelAccountIdToNull()
     {
         try {
-            classUnderTest.setChannel_account_id(null);
+            classUnderTest.setAccountId(null);
             fail();
         }
         catch (RuntimeException e){

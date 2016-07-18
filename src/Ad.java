@@ -4,7 +4,7 @@
 public class Ad {
 
     private String engine;
-    private String ad_type;
+    private String adType;
     private String theme;
 
     public String getTheme() {
@@ -23,12 +23,12 @@ public class Ad {
         this.engine = engine;
     }
 
-    public String getAd_type() {
-        return ad_type;
+    public String getAdType() {
+        return adType;
     }
 
-    public void setAd_type(String ad_type) {
-        this.ad_type = ad_type;
+    public void setAdType(String adType) {
+        this.adType = adType;
     }
 
     @Override
@@ -39,7 +39,7 @@ public class Ad {
         Ad ad = (Ad) o;
 
         if (!engine.equals(ad.engine)) return false;
-        if (ad_type != null ? !ad_type.equals(ad.ad_type) : ad.ad_type != null) return false;
+        if (adType != null ? !adType.equals(ad.adType) : ad.adType != null) return false;
         return !(theme != null ? !theme.equals(ad.theme) : ad.theme != null);
 
     }
@@ -47,7 +47,7 @@ public class Ad {
     @Override
     public int hashCode() {
         int result = engine.hashCode();
-        result = 31 * result + (ad_type != null ? ad_type.hashCode() : 0);
+        result = 31 * result + (adType != null ? adType.hashCode() : 0);
         result = 31 * result + (theme != null ? theme.hashCode() : 0);
         return result;
     }
@@ -56,7 +56,7 @@ public class Ad {
     public String toString() {
         return "Ad{" +
                 "engine='" + engine + '\'' +
-                ", ad_type='" + ad_type + '\'' +
+                ", adType='" + adType + '\'' +
                 ", theme='" + theme + '\'' +
                 '}';
     }

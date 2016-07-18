@@ -4,23 +4,23 @@
 
 public class Account {
 
-    private String account_name;
-    private String vendor_class; //? ad
+    private String accountName;
+    private String vendorClass; //? ad
 
-    public String getAccount_name() {
-        return account_name;
+    public String getAccountName() {
+        return accountName;
     }
 
-    public void setAccount_name(String account_name) {
-        this.account_name = account_name;
+    public void setAccountName(String accountName) {
+        this.accountName = accountName;
     }
 
-    public String getVendor_class() {
-        return vendor_class;
+    public String getVendorClass() {
+        return vendorClass;
     }
 
-    public void setVendor_class(String vendor_class) {
-        this.vendor_class = vendor_class;
+    public void setVendorClass(String vendorClass) {
+        this.vendorClass = vendorClass;
     }
 
     @Override
@@ -30,23 +30,23 @@ public class Account {
 
         Account account = (Account) o;
 
-        if (account_name != null ? !account_name.equals(account.account_name) : account.account_name != null)
+        if (accountName != null ? !accountName.equals(account.accountName) : account.accountName != null)
             return false;
-        return !(vendor_class != null ? !vendor_class.equals(account.vendor_class) : account.vendor_class != null);
+        return !(vendorClass != null ? !vendorClass.equals(account.vendorClass) : account.vendorClass != null);
     }
 
     @Override
     public int hashCode() {
-        int result = account_name != null ? account_name.hashCode() : 0;
-        result = 31 * result + (vendor_class != null ? vendor_class.hashCode() : 0);
+        int result = accountName != null ? accountName.hashCode() : 0;
+        result = 31 * result + (vendorClass != null ? vendorClass.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "account_name='" + account_name + '\'' +
-                ", vendor_class='" + vendor_class + '\'' +
+                "accountName='" + accountName + '\'' +
+                ", vendorClass='" + vendorClass + '\'' +
                 '}';
     }
 }
