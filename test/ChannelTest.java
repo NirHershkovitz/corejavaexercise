@@ -1,6 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 /**
@@ -8,6 +11,7 @@ import static org.junit.Assert.fail;
  */
 public class ChannelTest {
     private Channel classUnderTest;
+    final private String TEST_MEMBER="testMember";
 
     @Before
     public void setup() {
@@ -16,58 +20,37 @@ public class ChannelTest {
 
     @Test
     public void shoulReturnTheNameThatWasSet() {
-        classUnderTest.setName("testName");
-        String tstmn = classUnderTest.getName();
-        assertEquals("channel name if not what expected", "testName", tstmn);
+        classUnderTest.setName(TEST_MEMBER);
+        final String tstmn = classUnderTest.getName();
+        assertThat("channel name if not what expected", TEST_MEMBER, is(tstmn));
     }
 
-    @Test
-    public void shouldThrowExceptionWhenSettingNameToNull()
-    {
-        try {
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowExceptionWhenSettingNameToNull() {
             classUnderTest.setName(null);
-            fail();
-        }
-        catch (RuntimeException e){
-            //Success
-        }
     }
 
     @Test
     public void shoulReturnTheChannelCampaignIdThatWasSet() {
-        classUnderTest.setCampaignId("testChannelCampaignId");
-        String tstCmpnId = classUnderTest.getCampaignId();
-        assertEquals("ChannelCampaignId if not what expected", "testChannelCampaignId", tstCmpnId);
+        classUnderTest.setCampaignId(TEST_MEMBER);
+        final String tstCmpnId = classUnderTest.getCampaignId();
+        assertThat("ChannelCampaignId if not what expected", TEST_MEMBER, is(tstCmpnId));
     }
 
-    @Test
-    public void shouldThrowExceptionWhenSettingChannelCampaignIdToNull()
-    {
-        try {
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowExceptionWhenSettingChannelCampaignIdToNull() {
             classUnderTest.setCampaignId(null);
-            fail();
-        }
-        catch (RuntimeException e){
-            //Success
-        }
     }
 
     @Test
     public void shoulReturnTheChannelAdIdThatWasSet() {
-        classUnderTest.setAdId("testChannelAdId");
-        String tstCnlAdId = classUnderTest.getAdId();
-        assertEquals("ChannelAdId if not what expected", "testChannelAdId", tstCnlAdId);
+        classUnderTest.setAdId(TEST_MEMBER);
+        final String tstCnlAdId = classUnderTest.getAdId();
+        assertThat(TEST_MEMBER, is(tstCnlAdId));
     }
 
-    @Test
-    public void shouldThrowExceptionWhenSettingChannelAccountIdToNull()
-    {
-        try {
-            classUnderTest.setAccountId(null);
-            fail();
-        }
-        catch (RuntimeException e){
-            //Success
-        }
+    @Test(expected = RuntimeException.class)
+    public void shouldThrowExceptionWhenSettingChannelAccountIdToNull() {
+        classUnderTest.setAccountId(null);
     }
 }

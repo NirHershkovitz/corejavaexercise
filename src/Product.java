@@ -3,10 +3,10 @@
  */
 
 public class Product {
-    private String productGroupId;
-    private String productClass1;
-    private String productClass2;
-    private String productClass3;
+    private String GroupId;
+    private String Class1;
+    private String Class2;
+    private String Class3;
     private String theme;
     private String cta;
 
@@ -26,36 +26,36 @@ public class Product {
         this.cta = cta;
     }
 
-    public String getProductGroupId() {
-        return productGroupId;
+    public String getGroupId() {
+        return GroupId;
     }
 
-    public void setProductGroupId(String productGroupId) {
-        this.productGroupId = productGroupId;
+    public void setGroupId(String groupId) {
+        this.GroupId = groupId;
     }
 
-    public String getProductClass1() {
-        return productClass1;
+    public String getClass1() {
+        return Class1;
     }
 
-    public void setProductClass1(String productClass1) {
-        this.productClass1 = productClass1;
+    public void setClass1(String class1) {
+        this.Class1 = class1;
     }
 
-    public String getProductClass2() {
-        return productClass2;
+    public String getClass2() {
+        return Class2;
     }
 
-    public void setProductClass2(String productClass2) {
-        this.productClass2 = productClass2;
+    public void setClass2(String class2) {
+        this.Class2 = class2;
     }
 
-    public String getProductClass3() {
-        return productClass3;
+    public String getClass3() {
+        return Class3;
     }
 
-    public void setProductClass3(String productClass3) {
-        this.productClass3 = productClass3;
+    public void setClass3(String class3) {
+        this.Class3 = class3;
     }
 
     @Override
@@ -63,14 +63,14 @@ public class Product {
         if (this == o) return true;
         if (!(o instanceof Product)) return false;
 
-        Product product = (Product) o;
+        final Product product = (Product) o;
 
-        if (!productGroupId.equals(product.productGroupId)) return false;
-        if (productClass1 != null ? !productClass1.equals(product.productClass1) : product.productClass1 != null)
+        if (!GroupId.equals(product.GroupId)) return false;
+        if (Class1 != null ? !Class1.equals(product.Class1) : product.Class1 != null)
             return false;
-        if (productClass2 != null ? !productClass2.equals(product.productClass2) : product.productClass2 != null)
+        if (Class2 != null ? !Class2.equals(product.Class2) : product.Class2 != null)
             return false;
-        if (productClass3 != null ? !productClass3.equals(product.productClass3) : product.productClass3 != null)
+        if (Class3 != null ? !Class3.equals(product.Class3) : product.Class3 != null)
             return false;
         if (theme != null ? !theme.equals(product.theme) : product.theme != null) return false;
         return !(cta != null ? !cta.equals(product.cta) : product.cta != null);
@@ -79,10 +79,10 @@ public class Product {
 
     @Override
     public int hashCode() {
-        int result = productGroupId.hashCode();
-        result = 31 * result + (productClass1 != null ? productClass1.hashCode() : 0);
-        result = 31 * result + (productClass2 != null ? productClass2.hashCode() : 0);
-        result = 31 * result + (productClass3 != null ? productClass3.hashCode() : 0);
+        int result = GroupId.hashCode();
+        result = 31 * result + (Class1 != null ? Class1.hashCode() : 0);
+        result = 31 * result + (Class2 != null ? Class2.hashCode() : 0);
+        result = 31 * result + (Class3 != null ? Class3.hashCode() : 0);
         result = 31 * result + (theme != null ? theme.hashCode() : 0);
         result = 31 * result + (cta != null ? cta.hashCode() : 0);
         return result;
@@ -91,10 +91,10 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "productGroupId='" + productGroupId + '\'' +
-                ", productClass1='" + productClass1 + '\'' +
-                ", productClass2='" + productClass2 + '\'' +
-                ", productClass3='" + productClass3 + '\'' +
+                "GroupId='" + GroupId + '\'' +
+                ", Class1='" + Class1 + '\'' +
+                ", Class2='" + Class2 + '\'' +
+                ", Class3='" + Class3 + '\'' +
                 ", theme='" + theme + '\'' +
                 ", cta='" + cta + '\'' +
                 '}';

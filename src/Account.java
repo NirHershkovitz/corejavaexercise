@@ -27,7 +27,7 @@ public class Account {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
-        Account account = (Account) o;
+        final Account account = (Account) o;
         if (Name != null ? !Name.equals(account.Name) : account.Name != null)
             return false;
         return !(vendorClass != null ? !vendorClass.equals(account.vendorClass) : account.vendorClass != null);

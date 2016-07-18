@@ -1,6 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
-
+import static org.hamcrest.CoreMatchers.is;
 import  static org.junit.Assert.*;
 /**
  * Created by ken-linux2 on 13/07/16.
@@ -8,22 +8,23 @@ import  static org.junit.Assert.*;
 public class AccountTest {
 
     private Account classUnderTest;
+    final private String TEST_MEMBER="testMember";
 
     @Before
     public void setUp(){classUnderTest=new Account();}
 
     @Test
     public void shouldReturnTheAccountNameThatWasSet(){
-        classUnderTest.setName("myAccountName");
-        String tstaAcntNam=classUnderTest.getName();
-        assertEquals("account name if not what expected","myAccountName", tstaAcntNam);
+        classUnderTest.setName(TEST_MEMBER);
+        final String tstaAcntNam=classUnderTest.getName();
+        assertThat(TEST_MEMBER, is(tstaAcntNam));
     }
 
     @Test
     public void shouldReturnTheVendorClassThatWasSet(){
-        classUnderTest.setName("myVendorClass");
-        String tstavndrCls=classUnderTest.getName();
-        assertEquals("vendor class if not what expected","myVendorClass", tstavndrCls);
+        classUnderTest.setName(TEST_MEMBER);
+        final String tstavndrCls=classUnderTest.getName();
+        assertThat(TEST_MEMBER, is(tstavndrCls));
     }
 
 //    @Test

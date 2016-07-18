@@ -65,7 +65,7 @@ public class Channel {
         if (this == o) return true;
         if (!(o instanceof Channel)) return false;
 
-        Channel channel = (Channel) o;
+        final Channel channel = (Channel) o;
 
         if (name != null ? !name.equals(channel.name) : channel.name != null) return false;
         if (!CampaignId.equals(channel.CampaignId)) return false;

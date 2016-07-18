@@ -36,7 +36,7 @@ public class AdGroup {
         if (this == o) return true;
         if (!(o instanceof AdGroup)) return false;
 
-        AdGroup ad = (AdGroup) o;
+        final AdGroup ad = (AdGroup) o;
 
         if (!engine.equals(ad.engine)) return false;
         if (adType != null ? !adType.equals(ad.adType) : ad.adType != null) return false;
