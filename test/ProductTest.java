@@ -16,26 +16,26 @@ public class ProductTest {
 
     @Test
     public void shoulReturnTheProductGroupIdThatWasSet() {
-        classUnderTest.setProduct_group_id("MyProductGroupId");
-        String actualProductGroupId = classUnderTest.getProduct_group_id();
+        classUnderTest.setGroupId("MyProductGroupId");
+        String actualProductGroupId = classUnderTest.getGroupId();
         assertEquals("Product group id is not what expected", "MyProductGroupId", actualProductGroupId);
     }
     @Test
     public void shoulReturnTheProductClass1ThatWasSet() {
-        classUnderTest.setProduct_class_1("MyProductClass1");
-        String actualProductClass1 = classUnderTest.getProduct_class_1();
+        classUnderTest.setClass1("MyProductClass1");
+        String actualProductClass1 = classUnderTest.getClass1();
         assertEquals("product class 1 is not what expected", "MyProductClass1", actualProductClass1);
     }
     @Test
     public void shoulReturnTheProductClass2ThatWasSet() {
-        classUnderTest.setProduct_class_2("MyProductClass2");
-        String actualProductClass2 = classUnderTest.getProduct_class_2();
+        classUnderTest.setClass2("MyProductClass2");
+        String actualProductClass2 = classUnderTest.getClass2();
         assertEquals("product class 2 is not what expected", "MyProductClass2", actualProductClass2);
     }
     @Test
     public void shoulReturnTheProductClass3ThatWasSet() {
-        classUnderTest.setProduct_class_3("MyProductClass3");
-        String actualProductClass3 = classUnderTest.getProduct_class_3();
+        classUnderTest.setClass3("MyProductClass3");
+        String actualProductClass3 = classUnderTest.getClass3();
         assertEquals("product class 3 is not what expected", "MyProductClass3", actualProductClass3);
     }
 

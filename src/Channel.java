@@ -7,55 +7,56 @@
 public class Channel {
 
     private String name;
-    private String channel_campaign_id;
-    private String channel_adgroup_id;
-    private String channel_account_id;
-    private String channel_ad_id;
+    private String campaignId;
+    private String adgroupId;
+    private String accountId;
+    private String adId;
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
+
         if(name==null)
             throw new RuntimeException("name cannot be null");
         this.name = name;
     }
 
-    public String getChannel_campaign_id() {
-        return channel_campaign_id;
+    public String getCampaignId() {
+        return campaignId;
     }
 
-    public void setChannel_campaign_id(String channel_campaign_id) {
-        if(channel_campaign_id==null)
+    public void setCampaignId(String campaignId) {
+        if(campaignId ==null)
             throw new RuntimeException("channel campaign id cannot be null");
-        this.channel_campaign_id = channel_campaign_id;
+        this.campaignId = campaignId;
     }
 
-    public String getChannel_adgroup_id() {
-        return channel_adgroup_id;
+    public String getAdgroupId() {
+        return adgroupId;
     }
 
-    public void setChannel_adgroup_id(String channel_adgroup_id) {
-        this.channel_adgroup_id = channel_adgroup_id;
+    public void setAdgroupId(String adgroupId) {
+        this.adgroupId = adgroupId;
     }
 
-    public String getChannel_account_id() {
-        return channel_account_id;
+    public String getAccountId() {
+        return accountId;
     }
 
-    public void setChannel_account_id(String channel_account_id) {
-        if(channel_account_id==null)
+    public void setAccountId(String accountId) {
+        if(accountId ==null)
             throw new RuntimeException("channel account id cannot be null");
-        this.channel_account_id = channel_account_id;
+        this.accountId = accountId;
     }
 
-    public String getChannel_ad_id() {
-        return channel_ad_id;
+    public String getAdId() {
+        return adId;
     }
 
-    public void setChannel_ad_id(String channel_ad_id) {
-        this.channel_ad_id = channel_ad_id;
+    public void setAdId(String adId) {
+        this.adId = adId;
     }
 
     @Override
@@ -66,22 +67,22 @@ public class Channel {
         Channel channel = (Channel) o;
 
         if (name != null ? !name.equals(channel.name) : channel.name != null) return false;
-        if (!channel_campaign_id.equals(channel.channel_campaign_id)) return false;
-        if (channel_adgroup_id != null ? !channel_adgroup_id.equals(channel.channel_adgroup_id) : channel.channel_adgroup_id != null)
+        if (!campaignId.equals(channel.campaignId)) return false;
+        if (adgroupId != null ? !adgroupId.equals(channel.adgroupId) : channel.adgroupId != null)
             return false;
-        if (channel_account_id != null ? !channel_account_id.equals(channel.channel_account_id) : channel.channel_account_id != null)
+        if (accountId != null ? !accountId.equals(channel.accountId) : channel.accountId != null)
             return false;
-        return !(channel_ad_id != null ? !channel_ad_id.equals(channel.channel_ad_id) : channel.channel_ad_id != null);
+        return !(adId != null ? !adId.equals(channel.adId) : channel.adId != null);
 
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + channel_campaign_id.hashCode();
-        result = 31 * result + (channel_adgroup_id != null ? channel_adgroup_id.hashCode() : 0);
-        result = 31 * result + (channel_account_id != null ? channel_account_id.hashCode() : 0);
-        result = 31 * result + (channel_ad_id != null ? channel_ad_id.hashCode() : 0);
+        result = 31 * result + campaignId.hashCode();
+        result = 31 * result + (adgroupId != null ? adgroupId.hashCode() : 0);
+        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
+        result = 31 * result + (adId != null ? adId.hashCode() : 0);
         return result;
     }
 
@@ -89,10 +90,10 @@ public class Channel {
     public String toString() {
         return "Channel{" +
                 "name='" + name + '\'' +
-                ", channel_campaign_id='" + channel_campaign_id + '\'' +
-                ", channel_adgroup_id='" + channel_adgroup_id + '\'' +
-                ", channel_account_id='" + channel_account_id + '\'' +
-                ", channel_ad_id='" + channel_ad_id + '\'' +
+                ", campaignId='" + campaignId + '\'' +
+                ", adgroupId='" + adgroupId + '\'' +
+                ", accountId='" + accountId + '\'' +
+                ", adId='" + adId + '\'' +
                 '}';
     }
 }
