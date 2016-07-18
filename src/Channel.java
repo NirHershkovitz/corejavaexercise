@@ -9,14 +9,20 @@ public class Channel {
     private String AccountId;
     private String AdId;
 
+
+      public static <T> T checkNotNull(T reference) {
+            if (reference == null) {
+                  throw new NullPointerException();
+                }
+            return reference;
+          }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        if (name == null) {
-            throw new RuntimeException("name cannot be null");
-        }
+        checkNotNull(name);
         this.name = name;
     }
 
@@ -25,10 +31,7 @@ public class Channel {
     }
 
     public void setCampaignId(String campaignId) {
-        if(campaignId==null)
-        {
-            throw new RuntimeException("not can be null");
-        }
+        checkNotNull(campaignId);
         this.CampaignId = campaignId;
     }
 
@@ -45,10 +48,7 @@ public class Channel {
     }
 
     public void setAccountId(String accountId) {
-        if(accountId ==null)
-        {
-            throw new RuntimeException("not can be null");
-        }
+        checkNotNull(accountId);
         this.AccountId = accountId;
     }
 

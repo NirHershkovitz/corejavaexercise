@@ -1,7 +1,7 @@
 /**
  * Created by ken-linux2 on 12/07/16.
  */
-public class Ad {
+public class AdGroup {
 
     private String engine;
     private String adType;
@@ -34,9 +34,9 @@ public class Ad {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Ad)) return false;
+        if (!(o instanceof AdGroup)) return false;
 
-        Ad ad = (Ad) o;
+        AdGroup ad = (AdGroup) o;
 
         if (!engine.equals(ad.engine)) return false;
         if (adType != null ? !adType.equals(ad.adType) : ad.adType != null) return false;
@@ -54,7 +54,7 @@ public class Ad {
 
     @Override
     public String toString() {
-        return "Ad{" +
+        return "AdGroup{" +
                 "engine='" + engine + '\'' +
                 ", adType='" + adType + '\'' +
                 ", theme='" + theme + '\'' +
