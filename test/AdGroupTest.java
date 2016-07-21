@@ -10,12 +10,12 @@ import static org.junit.Assert.fail;
 /**
  * Created by ken-linux2 on 13/07/16.
  */
-public class AdTest {
-    private Ad classUnderTest;
+public class AdGroupTest {
+    private AdGroup classUnderTest;
 
     @Before
     public void setup() {
-        classUnderTest = new Ad();
+        classUnderTest = new AdGroup();
     }
 
     @Test
@@ -29,7 +29,7 @@ public class AdTest {
     public void shouldReturnTheEngineThatWasSet() {
         classUnderTest.setEngine("MyEngine");
         String actualEngine = classUnderTest.getEngine();
-        assertEquals("Ad engine is not what expected", "MyEngine", actualEngine);
+        assertEquals("AdGroup engine is not what expected", "MyEngine", actualEngine);
     }
 
     @Test

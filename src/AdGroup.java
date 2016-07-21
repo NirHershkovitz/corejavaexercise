@@ -5,7 +5,7 @@
 /**
  * Created by ken-linux2 on 12/07/16.
  */
-public class Ad {
+public class AdGroup {
 
     private String engine;
     private String type;
@@ -39,11 +39,11 @@ public class Ad {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Ad ad = (Ad) o;
+        AdGroup adGroup = (AdGroup) o;
 
-        if (engine != null ? !engine.equals(ad.engine) : ad.engine != null) return false;
-        if (type != null ? !type.equals(ad.type) : ad.type != null) return false;
-        return !(theme != null ? !theme.equals(ad.theme) : ad.theme != null);
+        if (engine != null ? !engine.equals(adGroup.engine) : adGroup.engine != null) return false;
+        if (type != null ? !type.equals(adGroup.type) : adGroup.type != null) return false;
+        return !(theme != null ? !theme.equals(adGroup.theme) : adGroup.theme != null);
 
     }
 
@@ -56,7 +56,7 @@ public class Ad {
     }
     @Override
     public String toString() {
-        return "Ad{" +
+        return "AdGroup{" +
                 "engine='" + engine + '\'' +
                 ", type='" + type + '\'' +
                 ", theme='" + theme + '\'' +

@@ -8,18 +8,53 @@ public class Channel {
 
     private String name;
     private String campaignId;
-    private String adgroupId;
-    private String accountId;
+    private AdGroup adGroup;
+    private Account account; //add getters-done!
     private String adId;
+    private Product product; //add-done!
+
+
+    public AdGroup getAdGroup() {
+        return adGroup;
+    }
+
+    public void setAdGroup(AdGroup adGroup) {
+        this.adGroup = adGroup;
+    }
+
+
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+
+
+    public static <T> T checkNotNull(T reference) {
+        if (reference == null) {
+            throw new NullPointerException();
+        }
+        return reference;
+    }
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-
-        if(name==null)
-            throw new RuntimeException("name cannot be null");
+        checkNotNull(name);
         this.name = name;
     }
 
@@ -28,27 +63,8 @@ public class Channel {
     }
 
     public void setCampaignId(String campaignId) {
-        if(campaignId ==null)
-            throw new RuntimeException("channel campaign id cannot be null");
+     checkNotNull(campaignId);
         this.campaignId = campaignId;
-    }
-
-    public String getAdgroupId() {
-        return adgroupId;
-    }
-
-    public void setAdgroupId(String adgroupId) {
-        this.adgroupId = adgroupId;
-    }
-
-    public String getAccountId() {
-        return accountId;
-    }
-
-    public void setAccountId(String accountId) {
-        if(accountId ==null)
-            throw new RuntimeException("channel account id cannot be null");
-        this.accountId = accountId;
     }
 
     public String getAdId() {
@@ -60,40 +76,41 @@ public class Channel {
     }
 
     @Override
+    public String toString() {
+        return "Channel{" +
+                "name='" + name + '\'' +
+                ", campaignId='" + campaignId + '\'' +
+                ", adGroup=" + adGroup +
+                ", account=" + account +
+                ", adId='" + adId + '\'' +
+                ", product=" + product +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Channel)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Channel channel = (Channel) o;
 
-        if (name != null ? !name.equals(channel.name) : channel.name != null) return false;
+        if (!name.equals(channel.name)) return false;
         if (!campaignId.equals(channel.campaignId)) return false;
-        if (adgroupId != null ? !adgroupId.equals(channel.adgroupId) : channel.adgroupId != null)
-            return false;
-        if (accountId != null ? !accountId.equals(channel.accountId) : channel.accountId != null)
-            return false;
-        return !(adId != null ? !adId.equals(channel.adId) : channel.adId != null);
+        if (!adGroup.equals(channel.adGroup)) return false;
+        if (!account.equals(channel.account)) return false;
+        if (!adId.equals(channel.adId)) return false;
+        return product.equals(channel.product);
 
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
+        int result = name.hashCode();
         result = 31 * result + campaignId.hashCode();
-        result = 31 * result + (adgroupId != null ? adgroupId.hashCode() : 0);
-        result = 31 * result + (accountId != null ? accountId.hashCode() : 0);
-        result = 31 * result + (adId != null ? adId.hashCode() : 0);
+        result = 31 * result + adGroup.hashCode();
+        result = 31 * result + account.hashCode();
+        result = 31 * result + adId.hashCode();
+        result = 31 * result + product.hashCode();
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Channel{" +
-                "name='" + name + '\'' +
-                ", campaignId='" + campaignId + '\'' +
-                ", adgroupId='" + adgroupId + '\'' +
-                ", accountId='" + accountId + '\'' +
-                ", adId='" + adId + '\'' +
-                '}';
     }
 }

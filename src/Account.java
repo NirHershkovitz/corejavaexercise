@@ -5,6 +5,7 @@
  * Created by ken-linux2 on 12/07/16.
  */
 public class Account {
+    private Long id;//add setters
     private String name;
     private String vendorClass; //? ad
 

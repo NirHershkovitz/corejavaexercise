@@ -1,61 +1,56 @@
 /**
  * Created by kenshoo-linux on 14/07/16.
  */
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
-public class ReadCSV {
+
+public class CSVReader implements Closeable{
 
     public static void main(String[] args) {
 
-        ReadCSV obj = new ReadCSV();
+        CSVReader obj = new CSVReader();
         obj.run();
 
     }
 
     public void run() {
 
-        String csvFile = "/home/kenshoo-linux/develop/projects/corejavaexercise (copy)/macycExampleFile.csv - macycExampleFile.csv.csv";
+        final String csvFile = "/home/kenshoo-linux/develop/projects/corejavaexercise (copy)/macycExampleFile.csv - macycExampleFile.csv.csv";
         BufferedReader br = null;
-        String line = "";
-        String str="";
+        /////////Nir asked to add "private static final" -why isn't it working?
+        //private static final String csvSplitBy = ",";
         String csvSplitBy = ",";
-        int i=0;
 
         try {
 
             br = new BufferedReader(new FileReader(csvFile));
+            String str;
+            String line="";
             while ((line = br.readLine()) != null) {
-
-                // use tab as separator
                 String[] words = line.split(csvSplitBy);
                 for (String item: words) {
                     str = item +"\t\t";
                     System.out.print(str);
                 }
                 System.out.println();
-
-                //System.out.println("Words [code= " + words[4]
-                //       + " , name=" + words[5] + "]");
-
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
         }
-
+        try {
+            close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         System.out.println("Done");
+
+    }
+
+    @Override
+    public void close() throws IOException {
+
     }
 }

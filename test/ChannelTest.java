@@ -3,7 +3,10 @@
  */
 import org.junit.Before;
 import org.junit.Test;
+
+import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 /**
@@ -22,7 +25,7 @@ public class ChannelTest {
     public void shoulReturnTheNameThatWasSet() {
         classUnderTest.setName("MyName");
         String actualName = classUnderTest.getName();
-        assertEquals("channel name is not what expected", "MyName", actualName);
+        assertThat("MyName", is(actualName));
     }
 
     @Test
@@ -38,7 +41,7 @@ public class ChannelTest {
     public void shoulReturnTheChannelCampaignIdThatWasSet() {
         classUnderTest.setCampaignId("MyChannelCampaignId");
         String actualChannelCampaignId = classUnderTest.getCampaignId();
-        assertEquals("channel campaign id name is not what expected", "MyChannelCampaignId", actualChannelCampaignId);
+        assertThat( "MyChannelCampaignId", is(actualChannelCampaignId));
     }
 
     @Test
@@ -51,24 +54,31 @@ public class ChannelTest {
         }
     }
     @Test
-    public void shoulReturnTheChannelAdgroupIdThatWasSet() {
-        classUnderTest.setAdgroupId("MyChannelAdgroupId");
-        String actualChannelAdgroupId = classUnderTest.getAdgroupId();
-        assertEquals("channel adgroup id is not what expected", "MyChannelAdgroupId", actualChannelAdgroupId);
+    public void shoulReturnTheChannelAdgroupThatWasSet() {
+        final AdGroup myAdGroup = new AdGroup();
+        myAdGroup.setTheme("MyTheme");
+        myAdGroup.setType("MyType");
+        myAdGroup.setEngine("MyEngine");
+        classUnderTest.setAdGroup(myAdGroup);
+        AdGroup actualChannelAdgroup = classUnderTest.getAdGroup();
+        assertThat(actualChannelAdgroup,is(myAdGroup));
     }
 
 
     @Test
     public void shoulReturnTheChannelAccountIdThatWasSet() {
-        classUnderTest.setAccountId("MyChannelAccountId");
-        String actualChannelAccountId = classUnderTest.getAccountId();
-        assertEquals("channel account id is not what expected", "MyChannelAccountId", actualChannelAccountId);
+        final Account myAccount =new Account();
+        myAccount.setName("MyName");
+        myAccount.setVendorClass("MyVendorClass");
+        classUnderTest.setAccount(myAccount);
+        Account actualChannelAccountId = classUnderTest.getAccount();
+        assertThat(myAccount, is(actualChannelAccountId));
     }
 
     @Test
-    public void shouldThrowExceptionWhenSettingChannelAccountIdToNull() {
+    public void shouldThrowExceptionWhenSettingChannelAccountToNull() {
         try {
-            classUnderTest.setAccountId(null);
+            classUnderTest.setAccount(null);
             fail();
         } catch (RuntimeException e) {
             //Success
@@ -78,7 +88,7 @@ public class ChannelTest {
     public void shoulReturnTheChannelAdIdThatWasSet() {
         classUnderTest.setAdId("MyChannelAdId");
         String actualChanneAdId = classUnderTest.getAdId();
-        assertEquals("channel ad id is not what expected", "MyChannelAdId", actualChanneAdId);
+        assertThat("MyChannelAdId", is(actualChanneAdId));
     }
 
 
