@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.hamcrest.CoreMatchers.is;
 import  static org.junit.Assert.*;
 /**
@@ -9,6 +10,7 @@ public class AccountTest {
 
     private Account classUnderTest;
     final private String TEST_MEMBER="testMember";
+    final private Long TEST_ID = Long.valueOf(123456789);
 
     @Before
     public void setUp(){classUnderTest=new Account();}
@@ -22,9 +24,16 @@ public class AccountTest {
 
     @Test
     public void shouldReturnTheVendorClassThatWasSet(){
-        classUnderTest.setName(TEST_MEMBER);
-        final String tstavndrCls=classUnderTest.getName();
+        classUnderTest.setVendorClass(TEST_MEMBER);
+        final String tstavndrCls=classUnderTest.getVendorClass();
         assertThat(TEST_MEMBER, is(tstavndrCls));
+    }
+
+    @Test
+    public void shouldReturnTheIdThatWasSet(){
+        classUnderTest.setId(TEST_ID);
+        final Long tstId=classUnderTest.getId();
+        assertThat(TEST_ID, is(tstId));
     }
 
 //    @Test

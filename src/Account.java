@@ -4,15 +4,25 @@
 
 public class Account {
 
-    private String Name;
-    private String vendorClass; //? ad
+    private String name;
+    private String vendorClass;
+    private Long id;
+
+    public Account() {
+    }
+
+    public Account(Long id, String vendorClass, String name) {
+        this.id = id;
+        this.vendorClass = vendorClass;
+        this.name = name;
+    }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        this.Name = name;
+        this.name = name;
     }
 
     public String getVendorClass() {
@@ -23,28 +33,41 @@ public class Account {
         this.vendorClass = vendorClass;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Account)) return false;
-        final Account account = (Account) o;
-        if (Name != null ? !Name.equals(account.Name) : account.Name != null)
-            return false;
-        return !(vendorClass != null ? !vendorClass.equals(account.vendorClass) : account.vendorClass != null);
+
+        Account account = (Account) o;
+
+        if (name != null ? !name.equals(account.name) : account.name != null) return false;
+        if (vendorClass != null ? !vendorClass.equals(account.vendorClass) : account.vendorClass != null) return false;
+        return !(id != null ? !id.equals(account.id) : account.id != null);
+
     }
 
     @Override
     public int hashCode() {
-        int result = Name != null ? Name.hashCode() : 0;
+        int result = name != null ? name.hashCode() : 0;
         result = 31 * result + (vendorClass != null ? vendorClass.hashCode() : 0);
+        result = 31 * result + (id != null ? id.hashCode() : 0);
         return result;
     }
 
     @Override
     public String toString() {
         return "Account{" +
-                "Name='" + Name + '\'' +
+                "name='" + name + '\'' +
                 ", vendorClass='" + vendorClass + '\'' +
+                ", id='" + id + '\'' +
                 '}';
     }
 }

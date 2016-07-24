@@ -3,19 +3,23 @@
  */
 
 public class Product {
-    private String GroupId;
-    private String Class1;
-    private String Class2;
-    private String Class3;
-    private String theme;
+    private Long id;
+    private Long groupId;
+    private String class1;
+    private String class2;
+    private String class3;
     private String cta;
 
-    public String getTheme() {
-        return theme;
+    public Product() {
     }
 
-    public void setTheme(String theme) {
-        this.theme = theme;
+    public Product(Long id, Long groupId, String class1, String class2, String class3, String cta) {
+        this.id = id;
+        this.groupId = groupId;
+        this.class1 = class1;
+        this.class2 = class2;
+        this.class3 = class3;
+        this.cta = cta;
     }
 
     public String getCta() {
@@ -26,36 +30,44 @@ public class Product {
         this.cta = cta;
     }
 
-    public String getGroupId() {
-        return GroupId;
+    public Long getGroupId() {
+        return groupId;
     }
 
-    public void setGroupId(String groupId) {
-        this.GroupId = groupId;
+    public void setGroupId(Long groupId) {
+        this.groupId = groupId;
     }
 
     public String getClass1() {
-        return Class1;
+        return class1;
     }
 
     public void setClass1(String class1) {
-        this.Class1 = class1;
+        this.class1 = class1;
     }
 
     public String getClass2() {
-        return Class2;
+        return class2;
     }
 
     public void setClass2(String class2) {
-        this.Class2 = class2;
+        this.class2 = class2;
     }
 
     public String getClass3() {
-        return Class3;
+        return class3;
     }
 
     public void setClass3(String class3) {
-        this.Class3 = class3;
+        this.class3 = class3;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @Override
@@ -63,27 +75,24 @@ public class Product {
         if (this == o) return true;
         if (!(o instanceof Product)) return false;
 
-        final Product product = (Product) o;
+        Product product = (Product) o;
 
-        if (!GroupId.equals(product.GroupId)) return false;
-        if (Class1 != null ? !Class1.equals(product.Class1) : product.Class1 != null)
-            return false;
-        if (Class2 != null ? !Class2.equals(product.Class2) : product.Class2 != null)
-            return false;
-        if (Class3 != null ? !Class3.equals(product.Class3) : product.Class3 != null)
-            return false;
-        if (theme != null ? !theme.equals(product.theme) : product.theme != null) return false;
+        if (id != null ? !id.equals(product.id) : product.id != null) return false;
+        if (groupId != null ? !groupId.equals(product.groupId) : product.groupId != null) return false;
+        if (class1 != null ? !class1.equals(product.class1) : product.class1 != null) return false;
+        if (class2 != null ? !class2.equals(product.class2) : product.class2 != null) return false;
+        if (class3 != null ? !class3.equals(product.class3) : product.class3 != null) return false;
         return !(cta != null ? !cta.equals(product.cta) : product.cta != null);
 
     }
 
     @Override
     public int hashCode() {
-        int result = GroupId.hashCode();
-        result = 31 * result + (Class1 != null ? Class1.hashCode() : 0);
-        result = 31 * result + (Class2 != null ? Class2.hashCode() : 0);
-        result = 31 * result + (Class3 != null ? Class3.hashCode() : 0);
-        result = 31 * result + (theme != null ? theme.hashCode() : 0);
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (groupId != null ? groupId.hashCode() : 0);
+        result = 31 * result + (class1 != null ? class1.hashCode() : 0);
+        result = 31 * result + (class2 != null ? class2.hashCode() : 0);
+        result = 31 * result + (class3 != null ? class3.hashCode() : 0);
         result = 31 * result + (cta != null ? cta.hashCode() : 0);
         return result;
     }
@@ -91,11 +100,11 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "GroupId='" + GroupId + '\'' +
-                ", Class1='" + Class1 + '\'' +
-                ", Class2='" + Class2 + '\'' +
-                ", Class3='" + Class3 + '\'' +
-                ", theme='" + theme + '\'' +
+                "id='" + id + '\'' +
+                ", groupId='" + groupId + '\'' +
+                ", class1='" + class1 + '\'' +
+                ", class2='" + class2 + '\'' +
+                ", class3='" + class3 + '\'' +
                 ", cta='" + cta + '\'' +
                 '}';
     }
