@@ -66,7 +66,7 @@ public class ChannelTest {
 
     @Test
     public void shoulReturnTheAccountThatWasSet() {
-        Account account=new Account(TEST_ID,TEST_MEMBER,TEST_MEMBER);
+        Account account=new Account(TEST_MEMBER,TEST_MEMBER,TEST_MEMBER);
         classUnderTest.setAccount(account);
         final Account tstAcnt = classUnderTest.getAccount();
         assertThat(account, is(tstAcnt));
