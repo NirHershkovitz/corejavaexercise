@@ -6,12 +6,12 @@ public class Account {
 
     private String name;
     private String vendorClass;
-    private Long id;
+    private String id;
 
     public Account() {
     }
 
-    public Account(Long id, String vendorClass, String name) {
+    public Account(String id, String vendorClass, String name) {
         this.id = id;
         this.vendorClass = vendorClass;
         this.name = name;
@@ -33,11 +33,11 @@ public class Account {
         this.vendorClass = vendorClass;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

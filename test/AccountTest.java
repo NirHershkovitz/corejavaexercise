@@ -10,7 +10,6 @@ public class AccountTest {
 
     private Account classUnderTest;
     final private String TEST_MEMBER="testMember";
-    final private Long TEST_ID = Long.valueOf(123456789);
 
     @Before
     public void setUp(){classUnderTest=new Account();}
@@ -31,9 +30,9 @@ public class AccountTest {
 
     @Test
     public void shouldReturnTheIdThatWasSet(){
-        classUnderTest.setId(TEST_ID);
-        final Long tstId=classUnderTest.getId();
-        assertThat(TEST_ID, is(tstId));
+        classUnderTest.setId(TEST_MEMBER);
+        final String tstId=classUnderTest.getId();
+        assertThat(TEST_MEMBER, is(tstId));
     }
 
 //    @Test
