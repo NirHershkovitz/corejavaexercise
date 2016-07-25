@@ -16,7 +16,7 @@ public class CSVReader{
     final Converter CONVERTER = new Converter();
     Channel channel=new Channel();
 
-    private void run() {
+    public void run() {
         final String CSV_File = "/home/ken-linux2/Downloads/macycExampleFile.csv - macycExampleFile.csv.csv";
         BufferedReader br = null;
         String line;
