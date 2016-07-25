@@ -12,6 +12,16 @@ public class Product {
     private String class3;
     private String cta;
 
+    Product(){}
+
+    Product(String groupId, String class1, String class2, String class3, String cta){
+        this.groupId = groupId;
+        this.class1 = class1;
+        this.class2 = class2;
+        this.class3 = class3;
+        this.cta = cta;
+    }
+
     public String getCta() {
         return cta;
     }

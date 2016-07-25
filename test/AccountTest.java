@@ -1,8 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertThat;
 
 /**
  * Created by kenshoo-linux on 14/07/16.
@@ -17,7 +17,7 @@ public class AccountTest {
     public void shouldReturnTheAccountNameThatWasSet() {
         classUnderTest.setName("myAccountName");
         String actualAccountName = classUnderTest.getName();
-        assertEquals("account name is not what expected", "myAccountName", actualAccountName);
+        assertThat("myAccountName", is(actualAccountName));
     }
 
 
@@ -25,7 +25,13 @@ public class AccountTest {
     public void shouldReturnTheVendorClassThatWasSet() {
         classUnderTest.setVendorClass("myVendorClass");
         String actualVendorClass = classUnderTest.getVendorClass();
-        assertEquals("Vendor class name is not what expected", "myVendorClass", actualVendorClass);
+        assertThat("myVendorClass", is(actualVendorClass));
+    }
+    @Test
+    public void shouldReturnTheIdThatWasSet(){
+        classUnderTest.setId("125414512");
+        String actualId = classUnderTest.getId();
+        assertThat(actualId,is("125414512"));
     }
 
 }

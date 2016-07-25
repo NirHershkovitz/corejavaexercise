@@ -5,10 +5,25 @@
  * Created by ken-linux2 on 12/07/16.
  */
 public class Account {
-    private Long id;//add setters
-    private String name;
-    private String vendorClass; //? ad
 
+
+    private String id;
+    private String name;
+    private String vendorClass;
+
+    Account() {}
+    Account(String id,String name, String vendorClass){
+        this.id =id;
+        this.name = name;
+        this.vendorClass = vendorClass;
+    }
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     public String getName() {
         return name;
     }
@@ -24,32 +39,33 @@ public class Account {
     public void setVendorClass(String vendorClass) {
         this.vendorClass = vendorClass;
     }
+    @Override
+    public String toString() {
+        return "Account{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", vendorClass='" + vendorClass + '\'' +
+                '}';
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Account)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
 
         Account account = (Account) o;
 
-        if (name != null ? !name.equals(account.name) : account.name != null)
-            return false;
-        return !(vendorClass != null ? !vendorClass.equals(account.vendorClass) : account.vendorClass != null);
+        if (!id.equals(account.id)) return false;
+        if (!name.equals(account.name)) return false;
+        return vendorClass.equals(account.vendorClass);
 
     }
 
     @Override
     public int hashCode() {
-        int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (vendorClass != null ? vendorClass.hashCode() : 0);
+        int result = id.hashCode();
+        result = 31 * result + name.hashCode();
+        result = 31 * result + vendorClass.hashCode();
         return result;
-    }
-
-    @Override
-    public String toString() {
-        return "Account{" +
-                "name='" + name + '\'' +
-                ", vendorClass='" + vendorClass + '\'' +
-                '}';
     }
 }

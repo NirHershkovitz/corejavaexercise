@@ -7,9 +7,27 @@
  */
 public class AdGroup {
 
+
+    private long id;
     private String engine;
     private String type;
     private String theme;
+
+    public AdGroup(){}
+
+    AdGroup(long id, String engine, String theme, String type){
+        this.id = id;
+        this.engine = engine;
+        this.theme = theme;
+        this.type = type;
+    }
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public String getTheme() {
         return theme;
@@ -34,6 +52,7 @@ public class AdGroup {
     public void setType(String type) {
         this.type = type;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,27 +60,29 @@ public class AdGroup {
 
         AdGroup adGroup = (AdGroup) o;
 
-        if (engine != null ? !engine.equals(adGroup.engine) : adGroup.engine != null) return false;
-        if (type != null ? !type.equals(adGroup.type) : adGroup.type != null) return false;
-        return !(theme != null ? !theme.equals(adGroup.theme) : adGroup.theme != null);
+        if (id != adGroup.id) return false;
+        if (!engine.equals(adGroup.engine)) return false;
+        if (!type.equals(adGroup.type)) return false;
+        return theme.equals(adGroup.theme);
 
     }
 
     @Override
     public int hashCode() {
-        int result = engine != null ? engine.hashCode() : 0;
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (theme != null ? theme.hashCode() : 0);
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + engine.hashCode();
+        result = 31 * result + type.hashCode();
+        result = 31 * result + theme.hashCode();
         return result;
     }
     @Override
     public String toString() {
         return "AdGroup{" +
-                "engine='" + engine + '\'' +
+                "id=" + id +
+                ", engine='" + engine + '\'' +
                 ", type='" + type + '\'' +
                 ", theme='" + theme + '\'' +
                 '}';
     }
-
     //?  budgeting	fob
 }

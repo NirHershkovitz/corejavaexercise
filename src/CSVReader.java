@@ -4,53 +4,58 @@
 import java.io.*;
 
 
-public class CSVReader implements Closeable{
+public class CSVReader{
 
     public static void main(String[] args) {
 
         CSVReader obj = new CSVReader();
-        obj.run();
+        obj.run("/home/kenshoo-linux/develop/projects/projectJava/macycExampleFile.csv - macycExampleFile.csv.csv");
 
     }
 
-    public void run() {
 
-        final String csvFile = "/home/kenshoo-linux/develop/projects/corejavaexercise (copy)/macycExampleFile.csv - macycExampleFile.csv.csv";
+    public void run(String path) {
+
+        final String CSV_File = path;
         BufferedReader br = null;
-        /////////Nir asked to add "private static final" -why isn't it working?
-        //private static final String csvSplitBy = ",";
-        String csvSplitBy = ",";
+        final String SEPARATOR = ",";
 
         try {
 
-            br = new BufferedReader(new FileReader(csvFile));
+            br = new BufferedReader(new FileReader(CSV_File));
             String str;
-            String line="";
+            String line = "";
+            int flag = -1;
+            Channel channel = new Channel();
+            Convertor convertor = new Convertor();
             while ((line = br.readLine()) != null) {
-                String[] words = line.split(csvSplitBy);
-                for (String item: words) {
-                    str = item +"\t\t";
-                    System.out.print(str);
+                flag++;
+                if (flag > 0) {
+                    String[] words = line.split(SEPARATOR, 17);
+                    channel = convertor.convertToChannel(words);
+                    //Here will be a call for a function from another class
+                    //It will insert the channel that been returned to the database.
+                    for (String item : words) {
+                        str = item + "\t\t";
+                        System.out.print(str);
+                    }
+                    System.out.println();
                 }
-                System.out.println();
             }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        try {
-            close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Done");
+        } finally {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
+            System.out.println("Done");
+        }
     }
 
-    @Override
-    public void close() throws IOException {
-
-    }
 }

@@ -7,10 +7,10 @@
 public class Channel {
 
     private String name;
-    private String campaignId;
+    private long campaignId;
     private AdGroup adGroup;
     private Account account; //add getters-done!
-    private String adId;
+    private long adId;
     private Product product; //add-done!
 
 
@@ -58,20 +58,20 @@ public class Channel {
         this.name = name;
     }
 
-    public String getCampaignId() {
+    public long getCampaignId() {
         return campaignId;
     }
 
-    public void setCampaignId(String campaignId) {
+    public void setCampaignId(long campaignId) {
      checkNotNull(campaignId);
         this.campaignId = campaignId;
     }
 
-    public String getAdId() {
+    public long getAdId() {
         return adId;
     }
 
-    public void setAdId(String adId) {
+    public void setAdId(long adId) {
         this.adId = adId;
     }
 
@@ -95,10 +95,12 @@ public class Channel {
         Channel channel = (Channel) o;
 
         if (!name.equals(channel.name)) return false;
-        if (!campaignId.equals(channel.campaignId)) return false;
+        //long is not working inthe equals and hashcode functions.
+        //(id is initialized as long)
+        //if (!campaignId.equals(channel.campaignId)) return false;
         if (!adGroup.equals(channel.adGroup)) return false;
         if (!account.equals(channel.account)) return false;
-        if (!adId.equals(channel.adId)) return false;
+        //if (!adId.equals (Long.valueOf(channel.adId))) return false;
         return product.equals(channel.product);
 
     }
@@ -106,10 +108,10 @@ public class Channel {
     @Override
     public int hashCode() {
         int result = name.hashCode();
-        result = 31 * result + campaignId.hashCode();
+        //result = 31 * result + campaignId.hashCode();
         result = 31 * result + adGroup.hashCode();
         result = 31 * result + account.hashCode();
-        result = 31 * result + adId.hashCode();
+        //result = 31 * result + adId.hashCode();
         result = 31 * result + product.hashCode();
         return result;
     }

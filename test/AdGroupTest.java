@@ -4,8 +4,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
 
 /**
  * Created by ken-linux2 on 13/07/16.
@@ -19,24 +20,31 @@ public class AdGroupTest {
     }
 
     @Test
+    public void shouldReturnTheIdThatWasSet() {
+        classUnderTest.setId((long)1234567890);
+        long actualId = classUnderTest.getId();
+        assertThat(actualId, is((long)1234567890));
+    }
+
+    @Test
     public void shouldReturnTheAdTypeThatWasSet() {
         classUnderTest.setType("MyAdType");
         String actualAdType = classUnderTest.getType();
-        assertEquals("AdType is not what expected", "MyAdType", actualAdType);
+        assertThat("MyAdType", is(actualAdType));
     }
 
     @Test
     public void shouldReturnTheEngineThatWasSet() {
         classUnderTest.setEngine("MyEngine");
         String actualEngine = classUnderTest.getEngine();
-        assertEquals("AdGroup engine is not what expected", "MyEngine", actualEngine);
+       assertThat("MyEngine", is(actualEngine));
     }
 
     @Test
     public void shouldReturnTheThemeThatWasSet(){
         classUnderTest.setTheme("MyTheme");
         String actualTheme = classUnderTest.getTheme();
-        assertEquals("Theme is not what expected","MyTheme",actualTheme);
+        assertThat("MyTheme",is(actualTheme));
     }
 
 }
