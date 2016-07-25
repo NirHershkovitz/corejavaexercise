@@ -18,7 +18,7 @@ public class CSVReader{
 
         final String CSV_File = path;
         BufferedReader br = null;
-        final String SEPARATOR = ",";
+        final String separator = ",";
 
         try {
 
@@ -31,15 +31,9 @@ public class CSVReader{
             while ((line = br.readLine()) != null) {
                 flag++;
                 if (flag > 0) {
-                    String[] words = line.split(SEPARATOR, 17);
-                    channel = convertor.convertToChannel(words);
+                    channel = convertor.convertToChannel(line,separator);
                     //Here will be a call for a function from another class
                     //It will insert the channel that been returned to the database.
-                    for (String item : words) {
-                        str = item + "\t\t";
-                        System.out.print(str);
-                    }
-                    System.out.println();
                 }
             }
 

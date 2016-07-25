@@ -9,9 +9,9 @@ public class Channel {
     private String name;
     private long campaignId;
     private AdGroup adGroup;
-    private Account account; //add getters-done!
+    private Account account;
     private long adId;
-    private Product product; //add-done!
+    private Product product;
 
 
     public AdGroup getAdGroup() {

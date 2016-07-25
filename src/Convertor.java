@@ -3,15 +3,16 @@
  */
 public class Convertor {
 
-    private long parseTlongOrReturn0IfNull(String field)
+    private long TolongOrNull(String field)
     {
         if(!field.isEmpty())
             return Long.parseLong(field);
         return 0;
     }
 
-    public Channel convertToChannel(String words[])
+    public Channel convertToChannel(String line, String separator)
     {
+        String[] words = line.split(separator, 17);
         Channel channel = new Channel();
         Account account = new Account();
         AdGroup adGroup = new AdGroup();
@@ -23,7 +24,7 @@ public class Convertor {
         account.setVendorClass(words[12]);
 
         //AdGroup
-        adGroup.setId(parseTlongOrReturn0IfNull(words[3]));
+        adGroup.setId(TolongOrNull(words[3]));
         adGroup.setEngine(words[8]);
         adGroup.setType(words[9]);
         adGroup.setTheme(words[11]);
@@ -37,8 +38,8 @@ public class Convertor {
 
         //Channel
         channel.setName(words[0]);
-        channel.setCampaignId(parseTlongOrReturn0IfNull(words[2]));
-        channel.setAdId(parseTlongOrReturn0IfNull(words[4]));
+        channel.setCampaignId(TolongOrNull(words[2]));
+        channel.setAdId(TolongOrNull(words[4]));
         channel.setAccount(account);
         channel.setAdGroup(adGroup);
         channel.setProduct(product);
