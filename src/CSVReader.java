@@ -16,13 +16,13 @@ public class CSVReader{
 
     public void run(String path) {
 
-        final String CSV_File = path;
         BufferedReader br = null;
-        final String separator = ",";
+        //it doesn't allow me to add static.
+        final String SEPERATOR = ",";
 
         try {
 
-            br = new BufferedReader(new FileReader(CSV_File));
+            br = new BufferedReader(new FileReader(path));
             String str;
             String line = "";
             int flag = -1;
@@ -31,7 +31,7 @@ public class CSVReader{
             while ((line = br.readLine()) != null) {
                 flag++;
                 if (flag > 0) {
-                    channel = convertor.convertToChannel(line,separator);
+                    channel = convertor.convertToChannel(line,SEPERATOR);
                     //Here will be a call for a function from another class
                     //It will insert the channel that been returned to the database.
                 }

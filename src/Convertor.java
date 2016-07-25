@@ -3,7 +3,7 @@
  */
 public class Convertor {
 
-    private long TolongOrNull(String field)
+    private long tolongOrNull(String field)
     {
         if(!field.isEmpty())
             return Long.parseLong(field);
@@ -24,7 +24,7 @@ public class Convertor {
         account.setVendorClass(words[12]);
 
         //AdGroup
-        adGroup.setId(TolongOrNull(words[3]));
+        adGroup.setId(tolongOrNull(words[3]));
         adGroup.setEngine(words[8]);
         adGroup.setType(words[9]);
         adGroup.setTheme(words[11]);
@@ -38,8 +38,8 @@ public class Convertor {
 
         //Channel
         channel.setName(words[0]);
-        channel.setCampaignId(TolongOrNull(words[2]));
-        channel.setAdId(TolongOrNull(words[4]));
+        channel.setCampaignId(tolongOrNull(words[2]));
+        channel.setAdId(tolongOrNull(words[4]));
         channel.setAccount(account);
         channel.setAdGroup(adGroup);
         channel.setProduct(product);
