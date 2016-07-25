@@ -29,7 +29,6 @@ public class CSVReader{
                 myFile = line.split(SAPERATOR,17);
                 channel= CONVERTER.returnLineAsChannel(myFile);
             }
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
