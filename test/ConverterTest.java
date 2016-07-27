@@ -1,3 +1,7 @@
+import classDomain.Account;
+import classDomain.AdGroup;
+import classDomain.Channel;
+import classDomain.Product;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,8 +29,7 @@ public class ConverterTest {
 
         final String STRING_TEST="Google,2831944540,186307692,,,,GOOGLE_WOMENS_ACCESSORIES_PLA,WOMENS_ACCESSORIES,GOOGLE,PLA,CENTER_CORE,,WOMENS_ACCESSORIES,BRANDS,BRANDS,,";
 
-        final String[] MY_STR=STRING_TEST.split(",",17);
-        final Channel CHANNEL= classUnderTest.returnLineAsChannel(MY_STR);
+        final Channel CHANNEL= classUnderTest.returnLineAsChannel(STRING_TEST,",");
         assertThat(EXPECTED_CHANNEL, is(CHANNEL));
     }
 
