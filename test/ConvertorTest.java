@@ -1,3 +1,7 @@
+import domain.Account;
+import domain.AdGroup;
+import domain.Channel;
+import domain.Product;
 import org.junit.Before;
 import org.junit.Test;
 
