@@ -6,7 +6,18 @@ import domain.Product;
 /**
  * Created by kenshoo-linux on 24/07/16.
  */
+
 public class Convertor {
+    private String separator=",";
+
+    public String getSeparator() {
+        return separator;
+    }
+
+    public void setSeparator(String separator) {
+        this.separator = separator;
+    }
+
 
     private long tolongOrNull(String field)
     {
@@ -15,9 +26,9 @@ public class Convertor {
         return 0;
     }
 
-    public Channel convertToChannel(String line, String separator) //move separator to field
+    public Channel convertToChannel(String line) //move separator to field
     {
-        String[] words = line.split(separator, 17);
+        String[] words = line.split(getSeparator(), 17);
         Channel channel = new Channel();
         Account account = new Account();
         AdGroup adGroup = new AdGroup();

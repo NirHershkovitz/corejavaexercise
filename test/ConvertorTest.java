@@ -29,7 +29,7 @@ public class ConvertorTest {
         channel.setAccount(new Account("2831944540","GOOGLE_WOMENS_ACCESSORIES_PLA",""));
         channel.setAdGroup(new AdGroup(0,"GOOGLE","","PLA"));
         channel.setProduct(new Product("","WOMENS ACCESSORIES","BRANDS","BRANDS",""));
-        Channel actualChannel= classUnderTest.convertToChannel(str,",");
+        Channel actualChannel= classUnderTest.convertToChannel(str);
         assertThat(channel, is(actualChannel));
     }
 }
