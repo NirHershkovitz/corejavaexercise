@@ -8,16 +8,7 @@ import domain.Product;
  */
 
 public class Convertor {
-    private String separator=",";
-
-    public String getSeparator() {
-        return separator;
-    }
-
-    public void setSeparator(String separator) {
-        this.separator = separator;
-    }
-
+    public static final String SEPARATOR =",";
 
     private long tolongOrNull(String field)
     {
@@ -28,7 +19,7 @@ public class Convertor {
 
     public Channel convertToChannel(String line) //move separator to field
     {
-        String[] words = line.split(getSeparator(), 17);
+        String[] words = line.split(SEPARATOR, 17);
         Channel channel = new Channel();
         Account account = new Account();
         AdGroup adGroup = new AdGroup();

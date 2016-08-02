@@ -1,6 +1,5 @@
 package dao;
 
-import domain.Account;
 import domain.Product;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
