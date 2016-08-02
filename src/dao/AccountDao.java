@@ -1,7 +1,6 @@
 package dao;
 
 import domain.Account;
-import domain.AdGroup;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 

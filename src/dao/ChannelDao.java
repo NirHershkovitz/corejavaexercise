@@ -1,6 +1,9 @@
 package dao;
 
+import domain.Account;
+import domain.AdGroup;
 import domain.Channel;
+import domain.Product;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -27,7 +30,7 @@ public class ChannelDao {
                 channel.getAdGroup().getId(), channel.getProduct().getGroupId()});
     }
 
-    public Channel find(String id)  {
+    public Channel find(String channelName)  {
         RowMapper<Channel> rowMapper = new RowMapper() {
             @Override
             public Object mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -37,19 +40,26 @@ public class ChannelDao {
                 channel.setCampaignId(rs.getLong("campaign_id"));
                 //Still need to finish. Locate the right row from the Account, Product and AdGroup tables (& return objects);
                 //through the main Dao.
-//                channel.setAccount(account);
-//                channel.setAdGroup(adGroup);
-//                channel.setProduct(product);
+                Account account = new Account();
+                account.setId(rs.getString("account_id"));
+                channel.setAccount(account);
+
+                Product product = new Product();
+                product.setGroupId(rs.getString("product_group_id"));
+                channel.setProduct(product);
+
+                AdGroup adGroup = new AdGroup();
+                adGroup.setId(rs.getLong("ad_group_id"));
+                channel.setAdGroup(adGroup);
                 return channel;
             }
         };
-        return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, id);
+        return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, channelName);
     }
 
-
+    //Question: to get the channel as a channel or as a String (channelName)?
     public void delete (Channel channel){
         final String deleteSql = "DELETE FROM channelruth WHERE NAME = ?";
-        //Object[] params = { channel.getName() };
         int rows = jdbcTemplate.update(deleteSql, channel.getName());
     }
 }
