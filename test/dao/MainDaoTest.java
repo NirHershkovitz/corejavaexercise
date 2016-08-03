@@ -24,6 +24,7 @@ public class MainDaoTest {
     @Before
     public void setUp() throws Exception {
         JdbcTemplate jdbcTemplate =UtilClass.setUp();
+        classUnderTest=new MainDao();
     }
 
     @Test

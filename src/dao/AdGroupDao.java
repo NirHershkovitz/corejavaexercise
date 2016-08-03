@@ -46,7 +46,7 @@ public class AdGroupDao {
             }
         }
         public void delete (AdGroup adGroup){
-            final String deleteSql = "DELETE FROM ad_group WHERE ID = ?";
+            final String deleteSql = "DELETE FROM ad_group WHERE id = ?";
             int rows = jdbcTemplate.update(deleteSql, adGroup.getId());
         }
 }
