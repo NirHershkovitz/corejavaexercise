@@ -14,7 +14,7 @@ public class AccountDao {
     public static final String INSERT_SQL = "INSERT INTO account " +
             "(id, name, vendor_class) VALUES (?, ?, ?)";
 
-    public static final String SELECT_SQL = "SELECT * FROM account WHERE id=? ";
+    public static final String SELECT_SQL = "SELECT * FROM account WHERE id= ? ";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -38,7 +38,12 @@ public class AccountDao {
                 return account;
             }
         };
-        return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, id);
+        try {
+            return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, id);
+        } catch (Exception e){
+            return null;
+        }
+
     }
 
     public void delete (Account account){

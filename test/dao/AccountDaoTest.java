@@ -16,33 +16,31 @@ public class AccountDaoTest {
 
     public static final String ID = "1234567890";
     private AccountDao classUnderTest;
+    Account account= new Account("1234567890","name1","vendor_class1");
 
     @Before
     public void setUp() throws Exception {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/javaProject");
-        dataSource.setUsername("root");
-        dataSource.setPassword("root56");
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        JdbcTemplate jdbcTemplate =UtilClass.setUp();
         classUnderTest = new AccountDao(jdbcTemplate);
     }
 
     @Test
     public void shouldFindTheAccountThatWasSaved() {
-        //final String SELECT_SQL = "DELETE FROM channel WHERE name=? ";
-        Account account= new Account();
-        account.setId("1234567890");
-        account.setName("name1");
-        account.setVendorClass("vendor_class1");
-
         classUnderTest.save(account);
         Account result = classUnderTest.find(ID);
         assertNotNull(result);
 
         assertNotSame(account, result); //not same instance
         assertEquals(account, result);  //but same content
-        assertEquals(ID, result.getId());
+
+    }
+
+    @Test
+    public void shouldCheckThatAccountWasDeleted(){
+        classUnderTest.delete(account);
+        //Account result = classUnderTest.find(account.getId());
+        //assertNull(result);
+        assertNull(classUnderTest.find(account.getId()));
 
     }
 }

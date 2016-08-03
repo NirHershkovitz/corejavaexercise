@@ -14,7 +14,7 @@ public class AdGroupDao {
         public static final String INSERT_SQL = "INSERT INTO ad_group " +
                 "(id, engine, type, theme) VALUES (?, ?, ?, ?)";
 
-        public static final String SELECT_SQL = "SELECT * FROM ad_group WHERE id=? ";
+        public static final String SELECT_SQL = "SELECT * FROM ad_group WHERE id= ? ";
 
         private JdbcTemplate jdbcTemplate;
 
@@ -39,7 +39,11 @@ public class AdGroupDao {
                     return adGroup;
                 }
             };
-            return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, id);
+            try {
+                return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, id);
+            } catch (Exception e){
+                return null;
+            }
         }
         public void delete (AdGroup adGroup){
             final String deleteSql = "DELETE FROM ad_group WHERE ID = ?";

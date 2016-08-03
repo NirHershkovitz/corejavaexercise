@@ -14,7 +14,7 @@ public class ProductDao {
     public static final String INSERT_SQL = "INSERT INTO product " +
             "(group_id, class_1, class_2, class_3, cta) VALUES (?, ?, ?, ?, ?)";
 
-    public static final String SELECT_SQL = "SELECT * FROM product WHERE group_id=? ";
+    public static final String SELECT_SQL = "SELECT * FROM product WHERE group_id= ? ";
 
     private JdbcTemplate jdbcTemplate;
 
@@ -40,7 +40,11 @@ public class ProductDao {
                 return product;
             }
         };
-        return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, groupId);
+        try {
+            return jdbcTemplate.queryForObject(SELECT_SQL, rowMapper, groupId);
+        } catch (Exception e){
+            return null;
+        }
     }
 
     public void delete (Product product){

@@ -12,14 +12,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
  */
 public class MainDao {
 
+
     public JdbcTemplate createJdbcTemplate(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("com.mysql.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/javaProject");
         dataSource.setUsername("root");
         dataSource.setPassword("root56");
-        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        return jdbcTemplate;
+        return new JdbcTemplate(dataSource);
     }
 
     JdbcTemplate jdbcTemplate = createJdbcTemplate();
@@ -29,11 +29,14 @@ public class MainDao {
     ChannelDao channelDao = new ChannelDao(jdbcTemplate);
 
     public void save (Channel channel){
-        JdbcTemplate jdbcTemplate = createJdbcTemplate();
         accountDao.save(channel.getAccount());
         productDao.save(channel.getProduct());
         adGroupDao.save(channel.getAdGroup());
-        channelDao.save(channel);
+        channelDao.save(channel);//, channel.getAccount(), channel.getAdGroup(),channel.getProduct());
+        final String INSERT_SQL = "INSERT INTO channel " +
+                "(account_id, ad_group_id, product_group_id) VALUES (?, ?, ?)";
+        jdbcTemplate.update(INSERT_SQL, new Object[] {channel.getAccount().getId(), channel.getAdGroup().getId(), channel.getProduct().getGroupId()});
+
     }
 
     public Channel find (String channelName) {
